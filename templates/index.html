@@ -6,6 +6,13 @@
 </head>
 <body>
   <h1>Students</h1>
+  <h2>Average skills</h2>
+  <table>
+    <tr><th>Skill</th><th>Average</th></tr>
+    {% for skill, avg in skill_avgs %}
+    <tr><td>{{ skill }}</td><td>{{ avg }}</td></tr>
+    {% endfor %}
+  </table>
   <button type="button" id="shuffle">Shuffle</button>
   <ul id="names">
     {% for name in names %}

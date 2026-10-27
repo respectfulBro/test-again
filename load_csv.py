@@ -11,7 +11,10 @@ if not CSV_PATH.exists():
 
 
 def load_env():
-    for line in (ROOT / ".env").read_text().splitlines():
+    env = ROOT / ".env"
+    if not env.exists():
+        return
+    for line in env.read_text().splitlines():
         line = line.strip()
         if line and not line.startswith("#") and "=" in line:
             k, v = line.split("=", 1)
